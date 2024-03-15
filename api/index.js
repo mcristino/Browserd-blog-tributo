@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import userRoutes from './routes/user.route.js';
 
 
 // Configuração do dotenv (para encriptar os dados de acesso a base de dados)
@@ -21,3 +22,6 @@ const app = express();
 app.listen(3000, () => {
 	console.log('O servidor esta a correr na porta 3000!');
 });
+
+
+app.use('/api/user', userRoutes);
