@@ -9,20 +9,24 @@ export default function Header() {
 	const path = useLocation().pathname;
 	return (
 		<Navbar className='border-b-2'>
+			{/* Logotipo */}
 			<Link to='/' className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
 				<span className='px-2 py-1 bg-gradient-to-r from-red-600 to-orange-500 rounded-lg text-white'>Browserd's</span>
 				Blog
 			</Link>
+			{/* Procurar */}
 			<form>
 				<TextInput type='text' placeholder='Miau...' rightIcon={AiOutlineSearch} className='hidden lg:inline' />
 			</form>
 			<Button className='w-12 h-10 lg:hidden' color='gray' pill>
 				<AiOutlineSearch />
 			</Button>
+			{/* DarkMode */}
 			<div className='flex gap-2 md:order-2'>
 				<Button className='w-12 h-10 hidden sm:inline' color='gray' pill>
 					<FaMoon />
 				</Button>
+				{/* Sign In */}
 				<Link to='/sign-in'>
 					<Button gradientDuoTone='pinkToOrange' outline>
 						Sign In
@@ -30,6 +34,7 @@ export default function Header() {
 				</Link>
 				<Navbar.Toggle />
 			</div>
+			{/* Menu / Hamburger */}
 			<Navbar.Collapse>
 				<Navbar.Link active={path === '/'} as={'div'}>
 					<Link to='/'>Home</Link>

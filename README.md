@@ -10,3 +10,5 @@ Currently, two official plugins are available:
 Tailwindcss
 Flowbite react = some components
 Express - backend
+MongoDb - database
+Dotenv - encrypting sensetive data
