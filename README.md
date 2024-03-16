@@ -13,6 +13,7 @@ Express - backend
 MongoDb - database
 Dotenv - encrypting sensetive data
 bcryptjs - encrypting passwords on database
+jsonwebtoken (JWT) - Authentication
 
 
 insomnia - test api

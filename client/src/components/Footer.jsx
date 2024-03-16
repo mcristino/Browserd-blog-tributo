@@ -23,7 +23,7 @@ export default function FooterCom() {
 								<Footer.Link href='https://browserd.com/' target='_blank' rel='noopener noreferrer'>
 									O Browserd
 								</Footer.Link>
-								<Footer.Link href='/about' target='_blank' rel='noopener noreferrer'>
+								<Footer.Link href='/about'>
 									Projeto de Tributo
 								</Footer.Link>
 							</Footer.LinkGroup>
