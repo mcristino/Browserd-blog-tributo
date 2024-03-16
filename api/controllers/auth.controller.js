@@ -7,7 +7,7 @@ export const signup = async (req, res, next) => {
 
 	// Segurança extra caso consigam fazer bypass do modelo
 	if (!username || !email || !password || username === '' || email === '' || password === '') {
-        next(errorHandler(400, 'Por favor preencha todos os campos'));
+		next(errorHandler(400, 'Por favor preencha todos os campos'));
 	}
 
 	// Encriptar a password com bcryptjs
@@ -23,6 +23,6 @@ export const signup = async (req, res, next) => {
 		await newUser.save();
 		res.json('Utilizador criado com sucesso!');
 	} catch (error) {
-        next(error);
+		next(error);
 	}
 };
