@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema(
 			minlength: 6,
 			maxlength: 120,
 		},
+		profilePicture: {
+			type: String,
+			default: 'https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png',
+		},
 	},
 	{ timestamps: true },
 );
