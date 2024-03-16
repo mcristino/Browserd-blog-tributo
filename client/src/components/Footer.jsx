@@ -5,7 +5,7 @@ import { BsFacebook, BsInstagram, BsTwitter, BsGithub, BsYoutube } from 'react-i
 
 export default function FooterCom() {
 	return (
-		<Footer container className='border-t-8 border-orange-300'>
+		<Footer container className='border-t-8 border-orange-700'>
 			<div className='w-full max-w-7xl mx-auto'>
 				<div className='grid w-full justify-between sm:flex md:grid-cols-1'>
 					{/* Logotipo | Nome */}

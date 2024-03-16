@@ -63,7 +63,7 @@ export default function SignIn() {
 							<Label value='A sua palavra-passe' />
 							<TextInput type='password' placeholder='**********' id='password' onChange={handleChange} />
 						</div>
-						<Button gradientDuoTone='pinkToOrange' type='submit' disabled={loading}>
+						<Button className='bg-gradient-to-r from-orange-500 to-red-600' type='submit' disabled={loading}>
 							{loading ? (
 								<>
 									<Spinner size='sm' />,<span className='pl-3'>A carregar..</span>
@@ -71,8 +71,8 @@ export default function SignIn() {
 							) : (
 								'Iniciar Sessão'
 							)}
-            </Button>
-            <OAuth />
+						</Button>
+						<OAuth />
 					</form>
 					<div className='flex gap-2 text-sm mt-5'>
 						<span>Ainda não tem uma conta?</span>
