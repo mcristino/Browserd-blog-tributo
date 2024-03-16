@@ -12,3 +12,7 @@ Flowbite react = some components
 Express - backend
 MongoDb - database
 Dotenv - encrypting sensetive data
+bcryptjs - encrypting passwords on database
+
+
+insomnia - test api
