@@ -1,5 +1,4 @@
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
-import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -48,7 +47,9 @@ export default function SignUp() {
 						<span className='px-2 py-1 bg-gradient-to-r from-red-600 to-orange-500 rounded-lg text-white'>Browserd's</span>
 						Blog
 					</Link>
-					<p className='text-sm mt-5'>Este é um projeto de demonstração e de tributo a um grande blog Português. Pode registar-se com o seu email e palavra-passe ou com o Google.</p>
+					<p className='text-sm mt-5'>
+						Este é um projeto de demonstração e de tributo a um grande blog Português. <span className='font-bold'>Pode registar-se com o seu email e palavra-passe ou com o Google.</span>
+					</p>
 				</div>
 				{/* Lado Direito */}
 				<div className='flex-1'>
@@ -63,7 +64,7 @@ export default function SignUp() {
 						</div>
 						<div>
 							<Label value='A sua palavra-passe' />
-							<TextInput type='password' placeholder='Palavra-pass' id='password' onChange={handleChange} />
+							<TextInput type='password' placeholder='Palavra-passe' id='password' onChange={handleChange} />
 						</div>
 						<Button gradientDuoTone='pinkToOrange' type='submit' disabled={loading}>
 							{loading ? (
