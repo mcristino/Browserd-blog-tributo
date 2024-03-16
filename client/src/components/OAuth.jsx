@@ -1,5 +1,4 @@
 import { Button } from 'flowbite-react';
-import React from 'react';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth';
 import { app } from '../firebase';
@@ -22,7 +21,7 @@ export default function OAuth() {
 				body: JSON.stringify({
 					name: resultsFromGoogle.user.displayName,
 					email: resultsFromGoogle.user.email,
-					photoURL: resultsFromGoogle.user.photoURL,
+					googlePhotoUrl: resultsFromGoogle.user.photoURL,
 				}),
 			});
 			const data = await res.json();
