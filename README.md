@@ -17,7 +17,8 @@ jsonwebtoken (JWT) - Authentication
 redux tool kit - easier way to develop redux and manage redux. 
 react-redux - 
 redux persist
-firebase google - for google authentication
+firebase google - google authentication
+react-circular-progressbar - circular progress bars
 
 
 insomnia - test api
