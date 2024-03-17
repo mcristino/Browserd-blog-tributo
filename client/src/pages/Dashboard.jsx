@@ -17,10 +17,10 @@ export default function Dashboard() {
 		<div className='flex flex-col md:flex-row min-h-screen'>
 			<div className='md:w-56'>
 				{/* Barra Lateral */}
-				<DashSidebar />
+				<DashSidebar /> {/* Componente da barra lateral */}
 			</div>
 			{/* Perfil */}
-			{tab === 'profile' && <DashProfile />}
+			{tab === 'profile' && <DashProfile />} {/* Componente-página do Perfil */}
 		</div>
 	);
 }
