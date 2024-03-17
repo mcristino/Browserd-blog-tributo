@@ -52,7 +52,6 @@ export const updateUser = async (req, res, next) => {
 	}
 };
 
-
 // Apagar utilizador
 export const deleteUser = async (req, res, next) => {
 	if (req.user.id !== req.params.userId) {
@@ -65,4 +64,13 @@ export const deleteUser = async (req, res, next) => {
 	} catch (error) {
 		next(error);
 	}
-}
+};
+
+// Terminar sessão
+export const signOut = (req, res, next) => {
+	try {
+		res.clearCookie('access_token').status(200).json('Sessão terminada com sucesso!')
+	} catch (error) {
+		next(error);
+	}
+};
