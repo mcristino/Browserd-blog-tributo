@@ -51,3 +51,18 @@ export const updateUser = async (req, res, next) => {
 		next(error);
 	}
 };
+
+
+// Apagar utilizador
+export const deleteUser = async (req, res, next) => {
+	if (req.user.id !== req.params.userId) {
+		return next(errorHandler(403, 'Não está autorizado a apagar este utilizador.'));
+	}
+
+	try {
+		await User.findByIdAndDelete(req.params.userId);
+		res.status(200).json({ message: 'Utilizador apagado com sucesso!' });
+	} catch (error) {
+		next(error);
+	}
+}
