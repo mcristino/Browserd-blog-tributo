@@ -19,6 +19,7 @@ react-redux -
 redux persist
 firebase google - google authentication
 react-circular-progressbar - circular progress bars
+cookie-parser - 
 
 
 insomnia - test api
