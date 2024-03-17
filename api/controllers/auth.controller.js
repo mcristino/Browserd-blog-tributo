@@ -3,7 +3,7 @@ import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
 
-// Função para criar um novo utilizador
+//! Função para criar um novo utilizador
 export const signup = async (req, res, next) => {
 	const { username, email, password } = req.body;
 
@@ -29,7 +29,7 @@ export const signup = async (req, res, next) => {
 	}
 };
 
-// Função para fazer login
+//! Função para fazer login
 export const signin = async (req, res, next) => {
 	const { email, password } = req.body;
 
@@ -46,7 +46,7 @@ export const signin = async (req, res, next) => {
 		if (!ValidPassword) {
 			return next(errorHandler(400, 'Palavra-passe inválida')); // Aqui seria melhor utilizar algo como "Email ou palavra-passe inválidos" para não dar pistas a um atacante, mas como é um projeto educativo, vamos deixar assim.
 		}
-		const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+		const token = jwt.sign({ id: validUser._id, isAdmin: validUser.isAdmin }, process.env.JWT_SECRET);
 		const { password: pass, ...rest } = validUser._doc;
 
 		res
@@ -60,12 +60,13 @@ export const signin = async (req, res, next) => {
 	}
 };
 
+//! Função para autenticação google
 export const google = async (req, res, next) => {
 	const { email, name, googlePhotoUrl } = req.body;
 	try {
 		const user = await User.findOne({ email });
 		if (user) {
-			const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+			const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.JWT_SECRET);
 			const { password, ...rest } = user._doc;
 			res
 				.status(200)
@@ -83,7 +84,7 @@ export const google = async (req, res, next) => {
 				profilePicture: googlePhotoUrl,
 			});
 			await newUser.save();
-			const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+			const token = jwt.sign({ id: newUser._id, isAdmin: newUser.isAdmin }, process.env.JWT_SECRET);
 			const { password, ...rest } = newUser._doc;
 			res
 				.status(200)
