@@ -7,9 +7,10 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { updateStart, updateSuccess, updateFailure, deleteUserStart, deleteUserSuccess, deleteUserFailure, signOutSuccess } from '../redux/user/userSlice';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 export default function DashProfile() {
-	const { currentUser, error } = useSelector(state => state.user);
+	const { currentUser, error, loading } = useSelector(state => state.user);
 	const [imageFile, setImageFile] = useState(null);
 	const [imageFileUrl, setImageFileUrl] = useState(null);
 	const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -177,9 +178,16 @@ export default function DashProfile() {
 				<TextInput type='text' id='username' placeholder='Utilizador' defaultValue={currentUser.username} onChange={handleChange} />
 				<TextInput type='email' id='email' placeholder='Email' defaultValue={currentUser.email} onChange={handleChange} />
 				<TextInput type='password' id='password' placeholder='Palavra-passe' onChange={handleChange} />
-				<Button type='submit' className='bg-gradient-to-r from-red-600 to-orange-500' outline>
-					Atualizar
+				<Button type='submit' className='bg-gradient-to-r from-red-600 to-orange-500' outline disabled={loading || imageFileUploading}>
+					{loading ? 'A atualizar...' : 'Atualizar'}
 				</Button>
+				{currentUser.isAdmin && (
+					<Link to={'/create-post'}>
+						<Button type='button' className='w-full bg-gradient-to-r from-red-600 to-orange-500'>
+							Criar uma publicação
+						</Button>
+					</Link>
+				)}
 			</form>
 			{/* Botões por baixo do formulario */}
 			<div className='flex justify-between mt-5 font-semibold bg-gradient-to-r from-red-600 to-orange-500 text-transparent bg-clip-text'>

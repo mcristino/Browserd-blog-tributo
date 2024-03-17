@@ -20,6 +20,7 @@ redux persist
 firebase google - google authentication
 react-circular-progressbar - circular progress bars
 cookie-parser - 
+react-quill - - https://www.npmjs.com/package/react-quill
 
 
 insomnia - test api

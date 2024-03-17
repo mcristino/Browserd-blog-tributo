@@ -2,4 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Parametros para alterar a aparencia do react-quill e alterações necessárias para que o react-quill funcione no darkmode */
 
+body {
+	height: 100vh;
+}
+
+.ql-editor {
+	font-size: 1.05rem;
+}
