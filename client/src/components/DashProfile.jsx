@@ -165,6 +165,9 @@ export default function DashProfile() {
 								path: {
 									stroke: `rgba(234, 88, 12, ${imageFileUploadProgress / 100})`,
 								},
+								text: {
+									fill: `rgba(234, 88, 12)`,
+								},
 							}}
 						/>
 					)}

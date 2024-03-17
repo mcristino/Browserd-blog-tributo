@@ -14,13 +14,12 @@ MongoDb - database
 Dotenv - encrypting sensetive data
 bcryptjs - encrypting passwords on database
 jsonwebtoken (JWT) - Authentication
-redux tool kit - easier way to develop redux and manage redux. 
-react-redux - 
+redux tool kit - easier way to develop redux and manage redux.
+react-redux -
 redux persist
 firebase google - google authentication
 react-circular-progressbar - circular progress bars
-cookie-parser - 
-react-quill - - https://www.npmjs.com/package/react-quill
-
+cookie-parser -
+react-quill - - https://www.npmjs.com/package/react-quill (gives an error of decrecation in the console)
 
 insomnia - test api
