@@ -68,7 +68,6 @@ export const getPosts = async (req, res, next) => {
 	}
 };
 
-
 // Apagar publicação
 export const deletePosts = async (req, res, next) => {
 	if (!req.user.isAdmin && req.user.id !== req.params.userId) {
@@ -77,6 +76,30 @@ export const deletePosts = async (req, res, next) => {
 	try {
 		await Post.findByIdAndDelete(req.params.postId);
 		res.status(200).json('Publicação apagada com sucesso');
+	} catch (error) {
+		next(error);
+	}
+};
+
+// Atualizar publicação
+export const updatePost = async (req, res, next) => {
+	if (!req.user.isAdmin || req.user.id !== req.params.userId) {
+		return next(errorHandler(403, 'Não tens permissões para atualizar esta publicação'));
+	}
+	try {
+		const updatedPost = await Post.findByIdAndUpdate(
+			req.params.postId,
+			{
+				$set: {
+					title: req.body.title,
+					content: req.body.content,
+					category: req.body.category,
+					image: req.body.image,
+				},
+			},
+			{ new: true },
+		);
+		res.status(200).json(updatedPost);
 	} catch (error) {
 		next(error);
 	}
