@@ -58,23 +58,18 @@ Install dependencies
   npm install
 ```
 
-Start the Back-end server
+Build
 
 ```bash
-  npm run dev
+  npm npm run build
 ```
 
-Goto Front-end
+Start
 
 ```bash
-  cd client
+  npm npm run start
 ```
 
-Start the Front-end server
-
-```bash
-  npm run dev
-```
 
 **Access the live solution [here]()**
 
