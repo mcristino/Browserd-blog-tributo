@@ -67,3 +67,17 @@ export const getPosts = async (req, res, next) => {
 		next(error);
 	}
 };
+
+
+// Apagar publicação
+export const deletePosts = async (req, res, next) => {
+	if (!req.user.isAdmin && req.user.id !== req.params.userId) {
+		return next(errorHandler(403, 'Não tens permissões para apagar esta publicação'));
+	}
+	try {
+		await Post.findByIdAndDelete(req.params.postId);
+		res.status(200).json('Publicação apagada com sucesso');
+	} catch (error) {
+		next(error);
+	}
+};

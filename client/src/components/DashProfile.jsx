@@ -217,6 +217,7 @@ export default function DashProfile() {
 				</Alert>
 			)}
 
+			{/* Modal para mostrar o aviso de apagar conta */}
 			<Modal show={showModal} onClose={() => setShowModal(false)} popup size='md'>
 				<Modal.Header />
 				<Modal.Body>
