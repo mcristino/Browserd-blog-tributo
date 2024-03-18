@@ -21,5 +21,6 @@ firebase google - google authentication
 react-circular-progressbar - circular progress bars
 cookie-parser -
 react-quill - - https://www.npmjs.com/package/react-quill (gives an error of decrecation in the console)
+Scrollbar tailwind css - - https://www.npmjs.com/package/tailwind-scrollbar
 
 insomnia - test api
