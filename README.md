@@ -23,5 +23,6 @@ cookie-parser -
 react-quill - - https://www.npmjs.com/package/react-quill (gives an error of decrecation in the console)
 Scrollbar tailwind css - - https://www.npmjs.com/package/tailwind-scrollbar
 moment - date package - https://www.npmjs.com/package/react-moment
+line-clamp - - https://www.npmjs.com/package/@tailwindcss/line-clamp
 
 insomnia - test api
