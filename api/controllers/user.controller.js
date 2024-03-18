@@ -85,12 +85,12 @@ export const getUsers = async (req, res, next) => {
 		const limit = parseInt(req.query.limit) || 9;
 		const sortDirection = req.query.sort === 'asc' ? 1 : -1;
 
-		const users = await User.find().sort({ createdAt: sortDirection }).skip(startIndex).limit(limit)
+		const users = await User.find().sort({ createdAt: sortDirection }).skip(startIndex).limit(limit);
 		const usersWihtoutPassword = users.map(user => {
 			const { password, ...rest } = user._doc;
 			return rest;
 		});
-		
+
 		// Contar utilizadores
 		const totalUsers = await User.countDocuments();
 		const now = new Date();
@@ -98,6 +98,20 @@ export const getUsers = async (req, res, next) => {
 		const lastMonthUsers = await User.countDocuments({ createdAt: { $gte: oneMonthAgo } });
 
 		res.status(200).json({ users: usersWihtoutPassword, totalUsers, lastMonthUsers });
+	} catch (error) {
+		next(error);
+	}
+};
+
+// Obter utilizador de forma publica para comentários
+export const getUser = async (req, res, next) => {
+	try {
+		const user = await User.findById(req.params.userId);
+		if (!user) {
+			return next(errorHandler(404, 'Utilizador não encontrado.'));
+		}
+		const { password, ...rest } = user._doc;
+		res.status(200).json(rest);
 	} catch (error) {
 		next(error);
 	}
