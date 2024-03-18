@@ -23,7 +23,9 @@ export default function DashPosts() {
 						setShowMore(false);
 					}
 				}
-			} catch (error) {}
+			} catch (error) {
+				console.log(error.message);
+			}
 		};
 		if (currentUser.isAdmin) {
 			fetchPosts();
